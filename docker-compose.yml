@@ -4,3 +4,5 @@ services:
       image: postpaste-backend
       build:
         context: backend
+      ports:
+        - 8081:80
