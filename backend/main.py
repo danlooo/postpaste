@@ -1,11 +1,28 @@
-from flask import Flask
+from datamodel import *
+from flask import jsonify
 
-app = Flask(__name__)
+
+@app.route('/posts')
+def posts():
+    posts = db.session.query(Post).all()
+    return jsonify(posts)
+
+
+@app.route('/users')
+def users():
+    users = db.session.query(User).all()
+    return jsonify(users)
 
 
 @app.route('/')
-def hello():
-    return 'Hello, World!'
+def main():
+    return {
+        "message": "PostPaste backend entry point",
+        "links": {
+            "posts": "/posts",
+            "users": "/users"
+        }
+    }
 
 
 if __name__ == '__main__':
