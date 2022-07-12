@@ -6,3 +6,5 @@ services:
         context: backend
       ports:
         - 8081:80
+      volumes:
+        - ./data:/app/data
