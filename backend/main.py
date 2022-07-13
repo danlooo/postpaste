@@ -6,7 +6,11 @@ from flask import jsonify, request
 @app.route('/post', methods=['POST'])
 def post():
     if request.method == 'POST':
-        print(request)
+        req = request.json
+        post = Post(user_id=int(req["user_id"]), content=str(req["content"]))
+        db.session.add(post)
+        db.session.commit()
+        return {"status": 200, "message": "OK"}
 
 
 @app.route('/posts')
