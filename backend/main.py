@@ -1,5 +1,12 @@
+from crypt import methods
 from datamodel import *
-from flask import jsonify
+from flask import jsonify, request
+
+
+@app.route('/post', methods=['POST'])
+def post():
+    if request.method == 'POST':
+        print(request)
 
 
 @app.route('/posts')

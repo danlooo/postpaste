@@ -1,21 +1,23 @@
 version: "3.7"
 services:
-    backend:
-      image: postpaste-backend
-      build:
-        context: backend
-      ports:
-        - 8081:80
-      volumes:
-        - ./data:/app/data
-    frontend:
-      image: postpaste-frontend
-      build:
-        context: frontend
-      ports:
-        - 8082:3000
-      volumes:
-        # for dev
-        - type: bind
-          source: $PWD/frontend
-          target: /app
+  backend:
+    image: postpaste-backend
+    build:
+      context: backend
+    ports:
+      - 8081:80
+    volumes:
+      - ./data:/app/data
+  frontend:
+    image: postpaste-frontend
+    build:
+      context: frontend
+    ports:
+      - 8082:3000
+    volumes:
+      # for dev
+      - type: bind
+        source: $PWD/frontend
+        target: /app
+    depends_on:
+      - "backend"
