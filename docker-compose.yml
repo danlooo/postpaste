@@ -21,3 +21,15 @@ services:
         target: /app
     depends_on:
       - "backend"
+  database:
+    image: postgres:14.4-bullseye
+    environment:
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - database:/var/lib/postgresql
+  database-admin:
+    image: adminer:4.8.1-standalone
+    ports:
+      - 8083:8080
+volumes:
+  database:

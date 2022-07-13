@@ -4,7 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/main.sqlite3'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/main.sqlite3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@database/postgres'
 db = SQLAlchemy(app)
 
 
