@@ -19,9 +19,9 @@ const Home = (props) => {
         <p className={styles.description}>
           A social media service to learn full stack development
         </p>{" "}
-        <CardGroup className="rowwise">
+        <CardGroup className="rowwise flex-column">
           {props.posts.map((post) => (
-            <Card>
+            <Card className="mb-3">
               <Card.Header>
                 #{post.id} from user {post.user_id}{" "}
               </Card.Header>
