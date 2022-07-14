@@ -7,7 +7,7 @@ function Home({ posts }) {
       <CardGroup className="rowwise flex-column">
         {posts.map((post) => {
           return (
-            <Card>
+            <Card key={post.id}>
               <Card.Title>Post {post.id}</Card.Title>
               <Card.Body>{post.content}</Card.Body>
             </Card>
